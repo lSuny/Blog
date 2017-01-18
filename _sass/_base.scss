@@ -1,211 +1,118 @@
+/**
+ * Base Variables
+ */
+$font-header: 'Space Mono', monospace;
+$font-body: 'Inconsolata', monospace;
+$font-post: 'Lora', serif;
 
-*{
-    -webkit-transition: all 0.2s; /* Safari */
-    -webkit-transition-timing-function: linear; /* Safari */
-    transition: all 0.2s;
-    transition-timing-function: linear;
-      }
+$color-alpha: #9f8f68;
+$color-alpha--light: #f5f3ef;
+
+$color-black: #0a0a0a;
+$color-grey: #f8f9f9;
+$color-white: #fff;
+
+$mq-xs: 20em;
+$mq-sm: 30em;
+$mq-md: 54em;
+$mq-lg: 64em;
+$mq-xl: 76.5em;
+$mq-xxl: 114em;
+
+/**
+ * Base Settings/Overwrite Normalize
+ */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
 
 body {
-         background: #fff;
-         font-family: $base-font-family;
-         font-size: 15px;
-         font-weight: 300;
-         overflow-x: hidden;
-         color: $text-color;
-         line-height: 1.6;
-         @include media-query($on-palm) {
-          padding: 10px;        
-    }
-         
+  font-family: $font-body;
+  font-feature-settings: 'liga' 0;
+  font-size: 100%;
+  line-height: 1.6;
+
+  @media (min-width: $mq-xs) {
+    font-size: 102.5%;
+  }
+
+  @media (min-width: $mq-sm) {
+    font-size: 105%;
+  }
+
+  @media (min-width: $mq-md) {
+    font-size: 107.5%;
+  }
+
+  @media (min-width: $mq-lg) {
+    font-size: 110%;
+  }
+
+  @media (min-width: $mq-xl) {
+    font-size: 115%;
+  }
+
+  @media (min-width: $mq-xxl) {
+    font-size: 125%;
+  }
 }
 
+h1, h2 {
+  margin: 0;
 
-::-webkit-scrollbar {
-    -webkit-appearance: none;
-    height: 5px;
-    width: 10px;
-}
-::-webkit-scrollbar-thumb {
-    background-color: $text-color;
-}
-::-webkit-scrollbar-track {
-    background-color: #EEE;
+  font-family: $font-header;
 }
 
+h1 {
+  $fontSize: 3em;
+
+  @media (min-width: $mq-md) {
+    font-size: $fontSize;
+  }
+
+  @media (min-width: $mq-xl) {
+    font-size: $fontSize + 0.5em;
+  }
+}
+
+p {
+  margin: 0 0 0.75em;
+}
 
 a {
-    color: $brand-color;
-    text-decoration: none;
-    &:hover {
-        color: $highlight-color;
-    }
+  color: $color-black;
+  text-decoration: none;
+  transition: color 0.4s ease-in-out;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $color-alpha;
+  }
 }
 
-
-/**
- * Set `margin-bottom` to maintain vertical rhythm
- */
-h1, h2, h3, h4, h5, h6,
-p, blockquote, pre,
-ul, ol, dl, figure,
-%vertical-rhythm {
-    margin-bottom: $spacing-unit / 2;
+figure {
+  margin: 0;
 }
 
-h1,h2,h3,h4,h5,h6 {
-    font-family: $head-font-family;
-    font-weight: 700;
-    margin: 0;
-    line-height: 1.8;
-}
-
-
-/**
- * Headings
- */
-h1{
-    font-size: 2.2em;
-    @include media-query($on-laptop) {
-        font-size: 2em;
-    }
-}
-h2{
-    font-size: 1.6em;
-    @include media-query($on-laptop) {
-        font-size: 1.2em;
-    }
-}
-
-h3{
-    font-size: 1.2em;
-    @include media-query($on-laptop) {
-        font-size: 0.9em;
-    }
-}
-
-h4 {
-        font-size: 1em;
-    @include media-query($on-laptop) {
-        font-size: 0.8em;
-    }
-}
-
-h5{
-        font-size: 0.9em;
-    @include media-query($on-laptop) {
-        font-size: 0.7em;
-    }
-    
-}
-
-
-
-
-/**
- * Images
- */
 img {
-    max-width: 100%;
-    vertical-align: middle;
+  display: block;
+  width: 100%;
+  max-width: 100%;
 }
 
+ol, ul {
+  margin: 0;
+  padding: 0;
 
+  list-style-type: none;
+}
 
 /**
- * Lists
+ * Text Selection
  */
-ul, ol {
-    margin-left: $spacing-unit;
-     @include media-query($on-palm) {
-                font-size: 12px;
-                }
-}
-
-li {
-    > ul,
-    > ol {
-         margin-bottom: 0;
-            @include media-query($on-palm) {
-                font-size: 12px;
-                }
-    }
-}
-
-
-
-/**
- * Blockquotes
- */
-blockquote {
-    color: $brand-color;
-    border-left: 4px solid $brand-color;
-    padding-left: $spacing-unit / 2;
-    font-size: 18px;
-    letter-spacing: -1px;
-    font-style: italic;
-    font-family: monospace;
-    > :last-child {
-        margin-bottom: 0;
-    }
-}
-
-
-
-/**
- * Code formatting
- */
-pre,
-code {
-    font-size: 15px;
-    border-radius: 3px;
-}
-
-code {
-    padding: 1px 5px;
-    border: 1px solid $brand-color;
-}
-
-pre {
-    padding: 8px 12px;
-    overflow-x: auto;
-    border: 1px solid $brand-color;
-
-    > code {
-        border: 0;
-        padding-right: 0;
-        padding-left: 0;
-    }
-}
-
-
-/**
- * Clearfix
- */
-%clearfix {
-
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-}
-
-
-
-/**
- * Icons
- */
-.icon {
-
-    > svg {
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        vertical-align: middle;
-
-        path {
-            fill: $grey-color;
-        }
-    }
+::selection {
+  color: $color-white;
+  background-color: $color-alpha;
+  text-shadow: none;
 }
