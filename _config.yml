@@ -14,7 +14,7 @@ baseurl: '/Blog' #change it according to your repository name
 
 #Profile information
 name: Sunny Yin
-tagline: Full Stack Developer
+tagline: Java架构师
 pic: profile.png  #place a 100x100 picture inside /assets/images/ folder and provide the name of the file below
 
 #sidebar links
